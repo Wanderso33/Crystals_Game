@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta mame="viewport" content="width=device-width,initial scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge",google chrome,mozilla />
+		
+
+<script type="text/javascript">
+	var compvalue = 0;
+	var userscore= 0;
+	var losscount=0;
+	var wincount=0;
+	function GenerateRandomnumber() {
+		document.getElementById('TargetScore').innerHTML = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+		compvalue = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+		resetallvalues;
+	}
+	function resetallvalues() {
+		 compvalue = 0;
+		 userscore = 0;
+		 losscount = 0;
+		wincount = 0;
+		document.getElementById('UserScore').innerHTML = userscore;
+		document.getElementById('LossCount').innerHTML = losscount;
+		document.getElementById('WinCount').innerHTML = wincount;
+		document.getElementById('TargetScore').innerHTML = compvalue;
+	}
+	function userclick(gemvalue) {
+		if (userscore == 0) {
+			userscore = gemvalue;
+		}
+		else {
+			userscore = userscore + gemvalue;
+		}
+		
+		document.getElementById('UserScore').innerHTML = userscore;
+
+		if (userscore > compvalue) {
+			losscount = losscount + 1;
+			document.getElementById('LossCount').innerHTML = losscount;
+			alert("Sorry you lost!");
+			userscore = 0;
+		}
+		if (userscore == compvalue) {
+			wincount = wincount + 1;
+			document.getElementById('WinCount').innerHTML = wincount;
+			alert("Sorry you lost!");
+			userscore = 0;
+		}	
+
+
+
+		}
+</script>
+</head>
+
+<body onload="GenerateRandomnumber();">
+
+	<table>
+		<tr>
+			<td align="center"><h3>Your score</h3></td>
+			<td align="center"><h3>Target Score</h3></td>
+			<td align="center"><h3>Win Count</h3></td>
+			<td align="center"><h3>Loss Count</h3></td>
+		</tr>
+		<tr>
+			<td align="center"><label style="font-weight:bold"  id="UserScore"></label></td>
+			<td align="center"><label style="font-weight:bold" id="TargetScore"></label></td>
+			<td align="center"><label style="font-weight:bold" id="WinCount"></label></td>
+			<td align="center"><label style="font-weight:bold" id="LossCount"></label></td>
+
+		</tr>
+		<tr>
+			<td colspan="4">
+				<br />
+				<br />
+
+			</td>
+		</tr>
+		
+
+
+		<tr>
+			<td align="center">
+				BLUE	<br /><div onclick="userclick(1);" style="background-image: url(images/blue.png); background-repeat:no-repeat; height:137px; width: 138px;"></div>
+			</td>
+			<td align="center">
+				GREEN	<div onclick="userclick(5);" style="background-image: url(images/green.png); background-repeat:no-repeat; height:137px; width: 138px;"></div>
+			</td>
+			<td align="center">
+				RED	<div onclick="userclick(4);" style="background-image: url(images/Red.png); background-repeat:no-repeat; height:137px; width: 138px;"></div>
+			</td>
+			<td align="center">
+				YELLOW	<div onclick="userclick(2);" style="background-image: url(images/Yellow.png); background-repeat:no-repeat; height:137px; width: 138px;"></div>
+			</td>
+		</tr>
+
+	</table>
+
+
+	<table>
+	
+
+
+
+	</table>
+
+
+
+</body>
+</html>
+
+
